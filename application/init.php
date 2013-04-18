@@ -11,6 +11,7 @@ define('VIEWS_DIR', ROOT_DIR . DS . 'views/');
 define('CONTROLLERS_DIR', APPS_DIR . 'controllers/');
 define('MODELS_DIR', APPS_DIR . 'models/');
 
+require(BASE_DIR . 'error.php');
 require(BASE_DIR . 'controller.php');
 require(BASE_DIR . 'view.php');
 require(BASE_DIR . 'loader.php');

@@ -6,11 +6,12 @@ class BaseView {
     public $is_displayed = FALSE;
     
     protected $data;
-    protected $controller;    
+    protected $controller;
         
-    function __construct($controller_name){        
+    function __construct($controller_name, $action = ""){        
         $this->controller = strtolower($controller_name);
         $this->data['controller'] = $this->controller;
+        $this->data['action'] = $action;
     }
     
     function assign($name, $value) {                

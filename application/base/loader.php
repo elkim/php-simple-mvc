@@ -4,20 +4,15 @@ class BaseLoader{
     
     private $controller = 'home';
     private $action = 'index';
+    private $request;
     
-    function __construct() {
-
-        if (!empty($_REQUEST['controller'])) {
-            $this->controller = $_REQUEST['controller'];
-        }
+    public function __construct() {
+              
+        $this->processRequest($_REQUEST);
         
-        if (!empty($_REQUEST['action'])) {
-            $this->action = $_REQUEST['action'];
-        }
-        
-    }
+    }        
     
-    function execute() {
+    public function execute() {
         
         $class_path = CONTROLLERS_DIR . $this->controller . '.php';
         
@@ -29,28 +24,64 @@ class BaseLoader{
             
             $action = $this->action;
             
-            $class = new $controller(); //create class
+            $class = new $controller($action); //create class
+            $class->request = $this->request; //set class request variables
+                        
+            $class->$action(); //call action of created class BaseController will handle this and process proper action
+                
+            if (!$class->view->is_displayed) //default display call
             
-            if (method_exists($class, $action)) {
+                $class->view->display($action);                
                 
-                $class->$action(); //call action of created class
-                
-                if (!$class->view->is_displayed) //default display call
-                
-                    $class->view->display($action);                
-                
-                return TRUE;
-            } 
+            return $class;
+ 
             
+        } else {
+            ErrorController::badUrl();
         }
         
-        //include error controller
+        return FALSE;
+    }
+    
+    private function processRequest($request) {
+
+        if (empty($request)) { //process request_uri from $_SERVER
+            
+            $request = array();
+            $request_uri = $_SERVER['REQUEST_URI'];
+            
+            if (strlen($request_uri) > 1) {
+                
+                $segments = explode('/',$request_uri);
+                
+                $this->controller = (!empty($segments[1])) ? $segments[1] : $this->controller;
+                $this->action = (!empty($segments[2])) ? $segments[2] : $this->action;                
+                
+                foreach ($segments as $k => $segment) {
+                    
+                    if ($k == 0) continue;
+                    
+                    if ($k == 1 || $k == 2){
+                        $request[($k == 1)?'controller':'action'] = $segment;
+                    }elseif ($k % 2 == 0) {
+                        if (isset($request[$segments[$k - 1]])) $request[$segments[$k - 1]] = $segment;
+                    } else {                        
+                        $request[$segment] = '';                        
+                    }                    
+                }
+                
+                $_REQUEST = $request; //fill request variable also
+                
+            }
+            
+        } else {
+
+            $this->controller = (empty($request['controller'])) ? $this->controller : $request['controller'];
+            $this->action = (empty($request['action'])) ? $this->action : $request['action'];
+        }
         
-        require(BASE_DIR . 'error.php');
+        $this->request = $request;
         
-        $error_controller = new ErrorController();
-        
-        return $error_controller->badUrl();
     }
     
 }

@@ -1,26 +1,24 @@
 <?php
 
-class BaseController {
+class BaseController{
+    
+    private $caller;
     
     public $view;    
-    protected $request;
+    public $request;    
         
-    function __construct(){
-                
-        $this->view = new BaseView(strtolower(str_replace('Controller','',get_called_class())));
+    public function __construct($action=""){
         
-        $this->processRequest($_REQUEST);
+        $this->caller = get_called_class();        
+        $this->view = new BaseView(strtolower(str_replace('Controller','',$this->caller)), $action);
         
     }
     
-    private function processRequest($request) {
+    public function __call($name, $arguments){
         
-        //TODO: sanitize request here
-        //TODO: evaluate request_uri if seo mode process it and add to request 
-        $this->request = $request;                
-        
-        //echo "<pre>"; var_dump($request, $_SERVER);exit;        
-        
+        //inaccessible methods falls here
+        ErrorController::badUrl();
+     
     }
     
 }

@@ -6,7 +6,6 @@ class HomeController extends BaseController{
         
         $this->view->assign('foo', 'Home controller!');
         
-        //$this->view->display('404','error'); //displaying other view
     }
     
 }

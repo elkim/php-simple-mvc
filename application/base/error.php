@@ -1,10 +1,11 @@
 <?php
 
-class ErrorController extends BaseController{
+class ErrorController{
     
-    function badUrl(){
+    public static function badUrl(){
         
-        $this->view->display('404');
+        $view = new BaseView('error');
+        $view->display('404');
         
     }
     
