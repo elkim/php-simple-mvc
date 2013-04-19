@@ -1,0 +1,171 @@
+/*
+ * Players FTW style sheet
+ *
+ * Main style sheet of Players FTW
+ * Created by Jayson Obado (https://github.com/jaysonobado)
+ * Date of Creation: 04-04-2013 10:54 AM
+ */
+
+/* ==========================================================================
+   Main Styles
+   ========================================================================== */
+body{
+     /*url('') no-repeat;
+    background-position: top 0 left 0;*/
+    /*background:
+    url('http://hon.garena.com/templates/HON/images/bg.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;*/
+    /*background: url('http://hon.garena.com/templates/HON/images/bg.jpg') 0 0 no-repeat;
+    background-size: 100% auto;
+    background-position: fixed;*/
+    background-color: #000000;
+}
+
+
+section#maincontainer{
+    width: 100%;
+    max-width: 1020px;
+    margin: auto;
+}
+
+header#mainheader{
+    width: 100%;
+    position: relative;
+    height: 150px;
+    background-color: #b7b7b7;
+}
+
+div#maincontent{
+    width: 1020px;
+    margin: 0px auto;
+    position: relative;
+    height: 600px;
+    background-color: #5CCAD7;
+}
+
+aside#main-sidebar{
+    width: 200px;
+    padding: 0 10px;
+    background-color: #E8405A;
+    height:600px;
+}
+
+footer{
+    width:100%;
+    margin-top:20px;
+    height:200px;
+    background-color: #b7b7b7;
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+div#logo-wrap{
+    height: 150px;
+    overflow: hidden;
+    background-color: #c4c4c4;
+}
+
+div#header-wrap{
+    position: relative;
+    width: 100%;
+    max-width: 1190px;
+    background-color: #3B5998;
+    height: 100%;
+    margin: 0 auto;
+}
+
+div#main-van{
+    height: 30px;
+    background-color: #3B5998;
+}
+
+div#header-banner{
+    height:120px;
+    background-color: #E8405A;
+}
+
+div#subnav{
+    height: 45px;
+    background-color: #63BF6C;
+}
+
+/* ==========================================================================
+   Aside
+   ========================================================================== */
+
+/* ==========================================================================
+   Content
+   ========================================================================== */
+
+div#content-wrap{
+    width: 795px;
+    height:600px;
+    background-color: #63BF6C;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+div#footer-wrap{
+    position: relative;
+    width: 100%;
+    max-width: 1190px;
+    background-color: #F7D462;
+    height: 100%;
+    margin: 0 auto;
+}
+
+/* ==========================================================================
+   Content Lengths
+   ========================================================================== */
+
+div.sidebar1col{ width: 200px; }
+
+div.sidebar2col{ width: 95px; }
+
+div.contentfull{ width: 1020px; }
+
+div.content1col{ width: 795px; }
+
+div.content2col{ width: 395px; }
+
+div.content3col{ width: 261.6666666px; }
+
+div.content4col{ width: 195px; }
+
+div.content5col{ width: 155px; }
+
+div.content6col{ width: 127.5px; }
+
+
+/* ==========================================================================
+   Predefined Properties
+   ========================================================================== */
+
+.fleft{ float: left; }
+
+.fright{ float: right; }
+
+.marginr20{ margin-right: 20px; }
+
+.marginl20{ margin-left: 20px; }
+
+.margint20{ margin-top: 20px; }
+
+.marginb20{ margin-bottom: 20px; }
+
+.marginl15{ margin-left: 15px; }
+
+.marginr15{ margin-right: 15px; }
+
+.margint15{ margin-top: 15px; }
+
+.marginb15{ margin-bottom: 15px; }
+
+.clearfix{ clear: both; }

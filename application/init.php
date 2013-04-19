@@ -7,6 +7,7 @@ define('DS', '/');
 define('APPS_DIR', ROOT_DIR . DS . 'application/');
 define('BASE_DIR', APPS_DIR . 'base/');
 define('VIEWS_DIR', ROOT_DIR . DS . 'views/');
+define('LAYOUTS_DIR', ROOT_DIR . DS . 'layouts/');
 
 define('CONTROLLERS_DIR', APPS_DIR . 'controllers/');
 define('MODELS_DIR', APPS_DIR . 'models/');

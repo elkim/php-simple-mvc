@@ -10,7 +10,13 @@ class ErrorController{
         
         $view = new BaseView('error');
         $view->assign('message', $message);
-        $view->display('404');
+        
+        if (!$view->show404()) {            
+            
+            //kill page and display message if 404 page is missing in layouts folder
+            die($message); 
+            
+        }                      
         
     }
     
