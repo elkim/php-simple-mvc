@@ -58,6 +58,8 @@ class BaseLoader{
             
             if (strlen($request_uri) > 1) {
                 
+                $request_uri = substr($request_uri, strpos($_SERVER['PHP_SELF'], '/index.php', 1), strlen($request_uri)); //added to support sub folder installations
+                
                 $segments = explode('/',$request_uri);
                 
                 $this->controller = (!empty($segments[1])) ? $segments[1] : $this->controller;
