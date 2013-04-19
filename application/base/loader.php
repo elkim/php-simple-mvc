@@ -2,28 +2,34 @@
 
 class BaseLoader{
     
-    private $controller = 'home';
+    private $controller = 'default';
     private $action = 'index';
     private $request;
     
     public function __construct() {
-              
+        
         $this->processRequest($_REQUEST);
+        Service::setIni(APPS_DIR . 'config.ini');
         
     }        
     
     public function execute() {
         
         $class_path = CONTROLLERS_DIR . $this->controller . '.php';
+        $controller = '';
         
-        if (file_exists($class_path)) require($class_path);
-        
-        $controller = ucfirst($this->controller) . 'Controller';
+        if (file_exists($class_path)) { 
+            
+            require($class_path);
+            
+            $controller = Service::getClassName($class_path); // be sure to check for the file first!
+            
+        }
         
         if (class_exists($controller)) {
             
             $action = $this->action;
-            
+           
             $class = new $controller($action); //create class
             $class->request = $this->request; //set class request variables
                         

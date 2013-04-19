@@ -8,19 +8,24 @@ class BaseView {
     protected $data;
     protected $controller;
         
-    function __construct($controller_name, $action = ""){        
+    public function __construct($controller_name, $action = ""){
+                
         $this->controller = strtolower($controller_name);
         $this->data['controller'] = $this->controller;
         $this->data['action'] = $action;
+        
+        $xt = Service::get('application.views_extension');
+        if ($xt) $this->extension = $xt;
+        
     }
     
-    function assign($name, $value) {                
+    public function assign($name, $value) {                
         
         $this->data[$name] = $value;
         
     }
     
-    function display($filename, $base_path = '') {                
+    public function display($filename, $base_path = '') {                
         
         $base_path = (empty($base_path)) ? $this->controller : $base_path;
         
@@ -34,7 +39,11 @@ class BaseView {
             
             $this->is_displayed = TRUE;
                         
-        }        
+        }  else {
+            
+            ErrorController::notFound("missing view");
+                
+        }     
         
         return $this->is_displayed;
         

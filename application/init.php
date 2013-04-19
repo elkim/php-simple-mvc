@@ -11,13 +11,13 @@ define('VIEWS_DIR', ROOT_DIR . DS . 'views/');
 define('CONTROLLERS_DIR', APPS_DIR . 'controllers/');
 define('MODELS_DIR', APPS_DIR . 'models/');
 
+require(BASE_DIR . 'pdo.php');
 require(BASE_DIR . 'error.php');
+require(BASE_DIR . 'model.php');
 require(BASE_DIR . 'controller.php');
 require(BASE_DIR . 'view.php');
 require(BASE_DIR . 'loader.php');
-
-//TODO: add config file
-//TODO: sanitize request
+require(BASE_DIR . 'service.php');
 
 $loader = new BaseLoader();
 $loader->execute();
