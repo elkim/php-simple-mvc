@@ -13,13 +13,14 @@ class BaseView {
     public function __construct($controller_name, $action = ""){
                 
         $this->controller = strtolower($controller_name);
+        
         $this->data['controller'] = $this->controller;
         $this->data['action'] = $action;
         
         $xt = Service::get('application.views_extension');
         if ($xt) $this->extension = $xt;
         
-        $this->layout = Service::get('application.layout');
+        $this->layout = new layoutBase();
         
     }
     
@@ -36,16 +37,14 @@ class BaseView {
         $view_file = VIEWS_DIR . $base_path . DS . $filename . $this->extension; 
         
         if (file_exists($view_file)) {
-                                   
-            $this->data['view'] = $this;
             
-            extract($this->data);            
+            //set layout
             
-            ob_start(); include $view_file; //capture view content
-                
-            $this->view_file = ob_get_clean(); //store it.
+            $this->layout->setContent($view_file, $this->data);
             
-            include LAYOUTS_DIR . $this->layout . DS . 'index' . $this->extension; 
+            $layout = $this->layout;
+            
+            include LAYOUTS_DIR . $this->layout->selected_layout . DS . 'index' . $this->extension; //load index file (main file in layouts)
             
             $this->is_displayed = true;
                         
@@ -57,27 +56,6 @@ class BaseView {
         
         return $this->is_displayed;
         
-    }
-    
-    public function show404(){
-        
-        $path_to_page = LAYOUTS_DIR . $this->layout . DS . '404' . $this->extension;
-        
-        if ( file_exists($path_to_page)) {
-            
-            include $path_to_page;
-            
-            return true;
-        }
-        
-        return false;
-        
     }    
-    
-    public function getContents(){
-        
-        echo $this->view_file;
-
-    }
 
 }

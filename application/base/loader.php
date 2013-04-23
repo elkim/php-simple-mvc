@@ -22,7 +22,7 @@ class BaseLoader{
             
             require($class_path);
             
-            $controller = Service::getClassName($class_path); // be sure to check for the file first!
+            $controller = Service::getClassName($class_path); // be sure to check for the file first! this gets the class name
             
         }
         

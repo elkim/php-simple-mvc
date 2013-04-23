@@ -104,6 +104,10 @@ class Service{
         
         return $class;
     }
+	
+	function toHtml($var){
+		echo $var;
+	}
     
     function dump(){
         

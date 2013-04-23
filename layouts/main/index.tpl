@@ -18,43 +18,35 @@
         <script src="/js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
-
-        <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-        <![endif]-->
-
-        <!-- HEADER -->
-        <header id="mainheader" class="marginb20">
-
-            <div id="header-wrap">
-                sample header
-            </div>
-
-        </header>
-        <!-- CONTENT -->
-        <section id="maincontainer">
-
-            <div id="maincontent">
-
-                <aside id="main-sidebar" class="fleft">
-                    
-                </aside>
-
-                <div id="content-wrap" class="fright">
-                    <?php $view->getContents(); ?>
-                </div>
-
-            </div>
+        
+        <div id="wrap">
             
-        </section>
-        <!-- FOOTER -->
-        <footer>
-
-            <div id="footer-wrap">
-                sample footer
-            </div>
-
-        </footer>
+            <!--[if lt IE 7]>
+                <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+            <![endif]-->
+            
+            <header id="header">
+                <h1><a href="/">Company Name</a></h1>
+                <span>lorem ipsum dolor</span>
+            </header>
+            
+            <?php $layout->getContent('nav'); ?>      
+  
+            <section id="main">
+                
+                <?php $layout->getContent('sidebar'); ?>
+                
+                <div id="contents">
+                    <?php $layout->getContent('view'); ?>
+                </div>
+                <div class="clearfix"></div>
+            </section>   
+            
+            <footer>
+                <?php $layout->getContent('footer'); ?>
+            </footer>
+            
+        </div>               
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/js/vendor/jquery-1.9.0.min.js"><\/script>')</script>

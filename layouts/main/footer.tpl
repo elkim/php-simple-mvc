@@ -1,0 +1,1 @@
+<p>Copyright 2013 No more Inc. All Rights Reserved.</p>

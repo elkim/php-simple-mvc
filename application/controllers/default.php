@@ -4,7 +4,8 @@ class DefaultController extends BaseController{
     
     public function index(){        
         
-        $this->view->assign('foo', 'Welcome!'); //assigning variable
+        //assigning variable
+        $this->view->assign('foo', 'Welcome!'); 
                                 
     }
     

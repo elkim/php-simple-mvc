@@ -1,2 +1,2 @@
-<h1><?php echo $controller ?></h1>
+<h3><?php echo $controller ?></h3>
 <p>Action : <?php echo $action ?></p>

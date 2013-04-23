@@ -1,171 +1,215 @@
-/*
- * Players FTW style sheet
- *
- * Main style sheet of Players FTW
- * Created by Jayson Obado (https://github.com/jaysonobado)
- * Date of Creation: 04-04-2013 10:54 AM
- */
-
-/* ==========================================================================
-   Main Styles
-   ========================================================================== */
-body{
-     /*url('') no-repeat;
-    background-position: top 0 left 0;*/
-    /*background:
-    url('http://hon.garena.com/templates/HON/images/bg.jpg') no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;*/
-    /*background: url('http://hon.garena.com/templates/HON/images/bg.jpg') 0 0 no-repeat;
-    background-size: 100% auto;
-    background-position: fixed;*/
-    background-color: #000000;
+body {
+  background-color: #eee;
+  color: #000;
+  margin-top:20px;
+  min-width:960px;  
+}
+#wrap {
+  background-color:#fff;
+  margin:0 auto;
+  width:960px;
+  border-width: 0 1px;
+  border-style: solid;
+}
+header {
+  background-color: #808080;
+  color: #fff;
+  border-width: 1px 0;
+  border-style: solid;
+  padding: 10px;
+}
+header h1 {
+  padding:5px;
+  margin:0;
+}
+nav {
+  background-color: #c0c0c0;
+  color: #000;
+  padding:5px;
+  text-align: right;
+  border-bottom: 1px;
+  border-style: solid;
+}
+nav ul {
+  margin:0;
+  padding:0; 
+  list-style:none;
+}
+nav li {
+  display:inline;
+  margin:0;
+  padding:0;
+}
+nav a {
+  text-decoration: none;
+  background-color: #808080;
+  color: #000;
+  padding: 4px 5px 4px 5px;
+  border: solid 1px #000;
+}
+nav a:hover {
+  text-decoration: none;
+  background-color: #808080;
+  color: #fff;
+  padding: 4px 5px 4px 5px;
+}
+section#main {
+  background:#fff;
+  width:100%;
+}
+section#main h2, section#main h3, section#main p {
+  padding: 4px 0;
+}
+section#main p {
+  line-height: 14px;
+}
+div#contents {
+    float: left;
+    width: 752px;
+    margin: 4px;
+}
+aside {
+  color: #000;
+  float:left;
+  width:200px;
+}
+aside h3 {
+  margin: 5px 10px 1px 10px;
+  padding-bottom: 0;
+}
+aside ul {
+  border: solid 1px #fff;
+  border-bottom-width: 0;
+  margin: 0px 10px;
+  margin-bottom: 2px;
+  padding: 0;
+}
+aside ul, #sidebar ul li {
+  list-style-type: none;
+  display: block;
+}
+aside ul li {
+  border-bottom: solid 1px #fff;
+}
+aside ul li, aside ul li a {
+  margin: 0;
+  display: block;
+  padding: 0;
+  line-height: normal;
+}
+aside ul li a {
+  display: block;
+  padding: 2px 5px 3px 5px;
+}
+aside ul li a:link, aside ul li a:visited, aside ul li a:active {
+  text-decoration: none;
+  background-color: #cdc;
+  color: #000;
+}
+aside ul li a:hover {
+  text-decoration: none;
+  background-color: #808080;
+  color: #fff;
+}
+aside h3, aside p {
+  padding:0 10px 0 0;
+}
+footer {
+  background-color: #808080;
+  color: #fff;
+  text-align: center;
+  clear:both;
+  border-width: 1px 0;
+  border-style: solid;
+}
+footer p {
+  padding:5px;
+  margin:0;
+}
+#wrap, header, footer, nav, nav ul li a, aside, aside ul, aside ul li {
+  border-color: #c0c0c0;
 }
 
-
-section#maincontainer{
-    width: 100%;
-    max-width: 1020px;
-    margin: auto;
+table {
+  width: auto;
+  border: 1px solid #c0c0c0;
+  background-color: #fff;
 }
 
-header#mainheader{
-    width: 100%;
-    position: relative;
-    height: 150px;
-    background-color: #b7b7b7;
+th {
+  padding: 3px 4px;
+  color: #fff;
+  background-color: #808080;
+  border-top: 1px solid #c0c0c0;
+  border-bottom: 1px solid #c0c0c0;
+  text-align: left;
 }
 
-div#maincontent{
-    width: 1020px;
-    margin: 0px auto;
-    position: relative;
-    height: 600px;
-    background-color: #5CCAD7;
+td {
+  text-align: left;
+  font-size: 11px;
+  padding: 4px;
+  line-height: 16px;
 }
 
-aside#main-sidebar{
-    width: 200px;
-    padding: 0 10px;
-    background-color: #E8405A;
-    height:600px;
+input, textarea {
+  font-size: 11px;
+  font-weight: normal;
+  cursor: text;
+  vertical-align: middle;
+  padding: 2px;
+  color: #000;
+  border: 1px solid #c0c0c0;
+  background-color: #ded;
 }
 
-footer{
-    width:100%;
-    margin-top:20px;
-    height:200px;
-    background-color: #b7b7b7;
+input:hover, textarea:hover {
+  border: solid 1px #f00;
 }
 
-/* ==========================================================================
-   Header
-   ========================================================================== */
-
-div#logo-wrap{
-    height: 150px;
-    overflow: hidden;
-    background-color: #c4c4c4;
+input.button {
+  padding: 1px 3px;
+  background-color: #c0c0c0;
+  color: #000;
+  cursor: pointer;
+  line-height: 13px;
 }
 
-div#header-wrap{
-    position: relative;
-    width: 100%;
-    max-width: 1190px;
-    background-color: #3B5998;
-    height: 100%;
-    margin: 0 auto;
+input.button:hover {
+  background-color: #808080;
+  color: #fff;
 }
 
-div#main-van{
-    height: 30px;
-    background-color: #3B5998;
+option {
+  padding: 0 12px 0 0;
+  color: #000;
 }
 
-div#header-banner{
-    height:120px;
-    background-color: #E8405A;
+option.disabled-option {
+  color: graytext;
 }
 
-div#subnav{
-    height: 45px;
-    background-color: #63BF6C;
+.pagination span {
+  font-family: Tahoma,arial,Verdana,Sans-serif;
+  background-color: #787;
+  color: #fff;
+  border: 1px solid #787;
+  padding: 0px 3px 1px 3px;
 }
 
-/* ==========================================================================
-   Aside
-   ========================================================================== */
-
-/* ==========================================================================
-   Content
-   ========================================================================== */
-
-div#content-wrap{
-    width: 795px;
-    height:600px;
-    background-color: #63BF6C;
+.pagination a {
+  font-family: Tahoma,arial,Verdana,Sans-serif;
+  text-decoration: none;
+  background-color: #808080;
+  color: #000;
+  border: 1px solid #c0c0c0;
+  padding: 0px 3px 1px 3px;
 }
-
-/* ==========================================================================
-   Footer
-   ========================================================================== */
-
-div#footer-wrap{
-    position: relative;
-    width: 100%;
-    max-width: 1190px;
-    background-color: #F7D462;
-    height: 100%;
-    margin: 0 auto;
+.pagination a:hover {
+  font-family: Tahoma,arial,Verdana,Sans-serif;
+  border-color: #787;
+  background-color: #787;
+  color: #fff;
 }
-
-/* ==========================================================================
-   Content Lengths
-   ========================================================================== */
-
-div.sidebar1col{ width: 200px; }
-
-div.sidebar2col{ width: 95px; }
-
-div.contentfull{ width: 1020px; }
-
-div.content1col{ width: 795px; }
-
-div.content2col{ width: 395px; }
-
-div.content3col{ width: 261.6666666px; }
-
-div.content4col{ width: 195px; }
-
-div.content5col{ width: 155px; }
-
-div.content6col{ width: 127.5px; }
-
-
-/* ==========================================================================
-   Predefined Properties
-   ========================================================================== */
-
-.fleft{ float: left; }
-
-.fright{ float: right; }
-
-.marginr20{ margin-right: 20px; }
-
-.marginl20{ margin-left: 20px; }
-
-.margint20{ margin-top: 20px; }
-
-.marginb20{ margin-bottom: 20px; }
-
-.marginl15{ margin-left: 15px; }
-
-.marginr15{ margin-right: 15px; }
-
-.margint15{ margin-top: 15px; }
-
-.marginb15{ margin-bottom: 15px; }
 
 .clearfix{ clear: both; }

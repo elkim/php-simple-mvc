@@ -17,6 +17,7 @@ require(BASE_DIR . 'error.php');
 require(BASE_DIR . 'model.php');
 require(BASE_DIR . 'controller.php');
 require(BASE_DIR . 'view.php');
+require(BASE_DIR . 'layout.php');
 require(BASE_DIR . 'loader.php');
 require(BASE_DIR . 'service.php');
 

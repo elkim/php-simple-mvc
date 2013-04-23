@@ -8,6 +8,7 @@ class member extends ModelBase{
         
         if ($id) {
             
+            //getting result from database
             $result = $this->db
                             ->select('*')
                             ->from('tbl_user')
