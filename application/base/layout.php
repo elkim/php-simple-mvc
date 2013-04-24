@@ -2,15 +2,15 @@
 class layoutBase {
     
     public $selected_layout;
+    public $layout_path;
     
-    private $extension;
-    private $layout_path;
+    private $extension;    
     private $data = array();
     
     public function __construct(){
         
-        $this->selected_layout = strtolower(Service::get('application.layout'));
-        $this->layout_path = LAYOUTS_DIR . $this->selected_layout;
+        $this->selected_layout = strtolower(Service::get('application.layout'));        
+        $this->layout_path = LAYOUTS_DIR . $this->selected_layout . DS;
         $this->extension = Service::get('application.views_extension');
     }
     
@@ -19,10 +19,10 @@ class layoutBase {
         $path_to_file = '';
         $_unique_key = '';
         
-        if (file_exists($this->layout_path . DS . $file . $this->extension)) {
+        if (file_exists($this->layout_path . $file . $this->extension)) {
             
             $_unique_key = md5($file);
-            $path_to_file = $this->layout_path . DS . $file . $this->extension;
+            $path_to_file = $this->layout_path . $file . $this->extension;
             
         } elseif ( file_exists($file)) {
             
@@ -62,7 +62,7 @@ class layoutBase {
             
         } else { //try to get the file instead in selected layout folder
             
-            $path_to_file = $this->layout_path . DS . strtolower($key) . $this->extension;
+            $path_to_file = $this->layout_path . strtolower($key) . $this->extension;
             
             if (file_exists($path_to_file)) {
                 
@@ -79,7 +79,7 @@ class layoutBase {
     
     public function show404(){
         
-        $path_to_page = LAYOUTS_DIR . $this->selected_layout . DS . '404' . $this->extension;
+        $path_to_page = $this->layout_path . '404' . $this->extension;
         
         if ( file_exists($path_to_page)) {
             

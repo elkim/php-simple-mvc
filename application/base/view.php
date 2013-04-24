@@ -30,12 +30,12 @@ class BaseView {
         
     }
     
-    public function display($filename, $base_path = '') {                
+    public function display($filename, $base_path = '') {
         
         $base_path = (empty($base_path)) ? $this->controller : $base_path;
         
-        $view_file = VIEWS_DIR . $base_path . DS . $filename . $this->extension; 
-        
+        $view_file = $this->layout->layout_path . 'views' . DS . $base_path . DS . $filename . $this->extension;
+
         if (file_exists($view_file)) {
             
             //set layout
@@ -44,7 +44,11 @@ class BaseView {
             
             $layout = $this->layout;
             
-            include LAYOUTS_DIR . $this->layout->selected_layout . DS . 'index' . $this->extension; //load index file (main file in layouts)
+            $index_file = $this->layout->layout_path . 'index' . $this->extension;
+            
+            if (!file_exists($index_file)) die('ERROR: layout missing index file');
+            
+            include $index_file; //load index file (main file in layouts)
             
             $this->is_displayed = true;
                         

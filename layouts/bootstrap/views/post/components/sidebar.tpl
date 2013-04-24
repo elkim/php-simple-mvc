@@ -1,4 +1,3 @@
-<?php if (isset($show_sidebar) && $show_sidebar == true): ?>
 <aside>
     <h3><?php echo (isset($sidebar_title)) ? $sidebar_title : 'Sidebar Title' ; ?></h3>
     <ul>
@@ -12,4 +11,3 @@
         <li><a href="#">Item 8</a></li>
     </ul>
 </aside>
-<?php endif; ?>
